@@ -1,4 +1,4 @@
-package com.test.spacex
+package com.test.spacex.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
