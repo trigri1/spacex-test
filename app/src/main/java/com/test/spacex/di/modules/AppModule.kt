@@ -3,8 +3,8 @@ package com.test.spacex.di.modules
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
-import com.test.spacex.Consts
-import com.test.spacex.NetworkUtils
+import com.test.spacex.utils.Consts
+import com.test.spacex.utils.NetworkUtils
 import com.test.spacex.SpaceXApplication
 import com.test.spacex.data.DataManager
 import com.test.spacex.data.DataManagerImpl

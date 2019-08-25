@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.test.spacex.data.DataManager
 import com.test.spacex.rx.SchedulerProvider
 import com.test.spacex.ui.base.BaseViewModelFactory
+import com.test.spacex.ui.main.adapter.LaunchesAdapter
 import dagger.Module
 import dagger.Provides
 import io.reactivex.disposables.CompositeDisposable

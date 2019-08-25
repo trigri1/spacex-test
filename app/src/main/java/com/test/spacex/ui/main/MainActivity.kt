@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.test.spacex.R
 import com.test.spacex.ui.base.BaseActivity
+import com.test.spacex.ui.main.adapter.LaunchesAdapter
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector

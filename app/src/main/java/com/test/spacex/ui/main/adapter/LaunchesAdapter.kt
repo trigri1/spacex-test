@@ -1,4 +1,4 @@
-package com.test.spacex.ui.main
+package com.test.spacex.ui.main.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -22,7 +22,12 @@ class LaunchesAdapter : RecyclerView.Adapter<LaunchesViewHolder>() {
             list.addAll(updatedList)
             notifyDataSetChanged()
         } else {
-            val diffResult = DiffUtil.calculateDiff(LaunchesDiffCallback(list, updatedList))
+            val diffResult = DiffUtil.calculateDiff(
+                LaunchesDiffCallback(
+                    list,
+                    updatedList
+                )
+            )
             list.clear()
             list.addAll(updatedList)
             diffResult.dispatchUpdatesTo(this)

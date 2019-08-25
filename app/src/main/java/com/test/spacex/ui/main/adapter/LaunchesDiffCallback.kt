@@ -1,4 +1,4 @@
-package com.test.spacex.ui.main
+package com.test.spacex.ui.main.adapter
 
 import com.test.spacex.data.server.models.LaunchModel
 import com.test.spacex.ui.base.BaseDiffCallBack

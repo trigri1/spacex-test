@@ -1,8 +1,8 @@
-package com.test.spacex.ui.main
+package com.test.spacex.ui.main.adapter
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.test.spacex.Consts
+import com.test.spacex.utils.Consts
 import com.test.spacex.data.server.models.LaunchModel
 import com.test.spacex.ui.detail.openDetailActivity
 import kotlinx.android.synthetic.main.include_common_detail.view.*

@@ -5,7 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import com.test.spacex.Consts
+import com.test.spacex.utils.Consts
 import com.test.spacex.R
 import com.test.spacex.data.server.models.LaunchModel
 import com.test.spacex.ui.base.BaseActivity
