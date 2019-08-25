@@ -15,15 +15,10 @@ data class LaunchModel(
     @SerializedName("tentative_max_precision") val tentative_max_precision: String,
     @SerializedName("tbd") val tbd: Boolean,
     @SerializedName("launch_window") val launch_window: Double,
-    @SerializedName("rocket") val rocket: Rocket,
     @SerializedName("ships") val ships: List<String>,
-    @SerializedName("telemetry") val telemetry: Telemetry,
-    @SerializedName("launch_site") val launch_site: LaunchSite,
     @SerializedName("launch_success") val launch_success: Boolean,
-    @SerializedName("links") val links: Links,
     @SerializedName("details") val details: String,
     @SerializedName("upcoming") val upcoming: Boolean,
     @SerializedName("static_fire_date_utc") val static_fire_date_utc: String,
-    @SerializedName("static_fire_date_unix") val static_fire_date_unix: Double,
-    @SerializedName("timeline") val timeline: Timeline
+    @SerializedName("static_fire_date_unix") val static_fire_date_unix: Double
 ) : Serializable

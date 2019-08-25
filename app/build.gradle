@@ -70,10 +70,16 @@ dependencies {
     // ViewModel and LiveData
     implementation "android.arch.lifecycle:extensions:$rootProject.lifecycle"
     // Java8 support for Life cycles
-    implementation "android.arch.lifecycle:common-java8:1.1.1"
+    implementation "android.arch.lifecycle:common-java8:$rootProject.lifecycle"
 
 
     testImplementation 'junit:junit:4.12'
+    testImplementation 'org.mockito:mockito-core:2.19.0'
+    testImplementation 'com.nhaarman:mockito-kotlin-kt1.1:1.5.0'
+    testImplementation "android.arch.core:core-testing:$rootProject.lifecycle"
+
+
     androidTestImplementation 'com.android.support.test:runner:1.2.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.2.1'
+
 }
