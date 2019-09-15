@@ -16,7 +16,7 @@ class LaunchesDiffCallback(oldList: List<LaunchModel>, newList: List<LaunchModel
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
         val oldLaunchModel = oldList[oldItemPosition]
         val newLaunchModel = newList[newItemPosition]
-        return oldLaunchModel.flight_number == newLaunchModel.flight_number
-                && oldLaunchModel.mission_id == newLaunchModel.mission_id
+        return oldLaunchModel.flightNumber == newLaunchModel.flightNumber
+                && oldLaunchModel.missionId == newLaunchModel.missionId
     }
 }

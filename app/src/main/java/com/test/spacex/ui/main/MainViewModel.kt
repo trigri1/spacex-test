@@ -12,31 +12,34 @@ class MainViewModel(
     dataManager: DataManager,
     schedulerProvider: SchedulerProvider,
     compositeDisposable: CompositeDisposable
-) : BaseViewModel<MainContract>(dataManager, schedulerProvider, compositeDisposable) {
+) : BaseViewModel(dataManager, schedulerProvider, compositeDisposable) {
 
     val launchesList = MutableLiveData<List<LaunchModel>>()
+
+    val isLoading = MutableLiveData<Boolean>()
+    val error = MutableLiveData<String>()
 
     var originalList: List<LaunchModel>? = null
 
     fun getLaunches() {
-        viewContract?.showProgressBar()
+        isLoading.value = true
         compositeDisposable.add(
             dataManager.getLaunches()
                 ?.subscribeOn(schedulerProvider.io())
                 ?.observeOn(schedulerProvider.ui())
                 ?.subscribe({
-                    viewContract?.hideProgressBar()
+                    isLoading.value = false
                     originalList = it
                     launchesList.value = originalList
                 }, {
-                    viewContract?.hideProgressBar()
-                    viewContract?.onErrorReceived(getError(it))
+                    isLoading.value = false
+                    error.value = getError(it)
                 })!!
         )
     }
 
     fun filterLaunchesByTBD() {
-        launchesList.value = launchesList.value?.filter { it.tbd }
+        launchesList.value = launchesList.value?.filter { it.tbd ?: false }
     }
 
     fun fetchOriginalLaunches() {

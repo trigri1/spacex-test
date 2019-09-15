@@ -2,6 +2,7 @@ package com.test.spacex.ui.main
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.CheckBox
@@ -9,7 +10,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.test.spacex.R
+import com.test.spacex.data.server.models.LaunchModel
 import com.test.spacex.ui.base.BaseActivity
+import com.test.spacex.ui.detail.DetailActivity
 import com.test.spacex.ui.main.adapter.LaunchesAdapter
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -17,7 +20,7 @@ import dagger.android.HasAndroidInjector
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
-class MainActivity : BaseActivity<MainViewModel>(), HasAndroidInjector, MainContract {
+class MainActivity : BaseActivity<MainViewModel>(), HasAndroidInjector {
 
     @Inject
     lateinit var androidInjector: DispatchingAndroidInjector<Any>
@@ -40,10 +43,23 @@ class MainActivity : BaseActivity<MainViewModel>(), HasAndroidInjector, MainCont
 
     private fun initActivity() {
         rv_launches.adapter = adapter
-        getViewModel().viewContract = this
+
+        adapter.setOnItemClickListener(object : LaunchesAdapter.OnItemClickListener {
+            override fun onItemClick(view: View?, launchModel: LaunchModel?) {
+                DetailActivity.openDetailActivity(view?.context, launchModel)
+            }
+        })
+
         addSwipeRefresh()
         setListeners()
+        initObservers()
+    }
+
+
+    private fun initObservers() {
         observeLaunches()
+        observeLoading()
+        observeError()
     }
 
     private fun observeLaunches() {
@@ -55,26 +71,41 @@ class MainActivity : BaseActivity<MainViewModel>(), HasAndroidInjector, MainCont
         })
     }
 
+    private fun observeLoading() {
+        getViewModel().isLoading.observe(this, Observer {
+            if (it) {
+                showProgressBar()
+            } else {
+                hideProgressBar()
+            }
+        })
+    }
+
+    private fun observeError() {
+        getViewModel().error.observe(this, Observer {
+            onErrorReceived(it)
+        })
+    }
+
     override fun getViewModel(): MainViewModel {
         return ViewModelProviders.of(this, viewModelFactory).get(MainViewModel::class.java)
     }
 
 
-    override fun onErrorReceived(error: String) {
+    private fun onErrorReceived(error: String?) {
         swipe_refresh.isRefreshing = false
         data_parent.visibility = GONE
         tv_error.text = error
         tv_error.visibility = VISIBLE
         Log.e("onErrorReceived", error)
-
     }
 
-    override fun showProgressBar() {
+    private fun showProgressBar() {
         progress_circular.visibility = VISIBLE
     }
 
 
-    override fun hideProgressBar() {
+    private fun hideProgressBar() {
         progress_circular?.visibility = GONE
     }
 

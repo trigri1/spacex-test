@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 
-abstract class BaseActivity<VM : BaseViewModel<*>> : AppCompatActivity() {
+abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity() {
 
     private var viewModel: VM? = null
 

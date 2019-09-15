@@ -10,13 +10,12 @@ import retrofit2.HttpException
 import java.io.IOException
 import java.net.SocketTimeoutException
 
-abstract class BaseViewModel<N>(
+abstract class BaseViewModel(
     val dataManager: DataManager,
     val schedulerProvider: SchedulerProvider,
     val compositeDisposable: CompositeDisposable
 ) : ViewModel() {
 
-    var viewContract: N? = null
 
     fun getError(throwable: Throwable): String {
         return when (throwable) {

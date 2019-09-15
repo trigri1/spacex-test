@@ -13,7 +13,7 @@ object Consts {
     const val HTTP_CACHE_STALE_MAX_AGE = 60 * 60 * 24 * 2
 
 
-    fun getFormattedDate(context: Context, date: String): String {
+    fun getFormattedDate(context: Context, date: String?): String {
         val local = context.resources.configuration.locale
         val oldFormat = SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ssZ", local)
         val result = oldFormat.parse(date)

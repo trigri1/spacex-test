@@ -9,7 +9,7 @@ class DetailViewModel(
     dataManager: DataManager,
     schedulerProvider: SchedulerProvider,
     compositeDisposable: CompositeDisposable
-) : BaseViewModel<DetailContract>(dataManager, schedulerProvider, compositeDisposable) {
+) : BaseViewModel(dataManager, schedulerProvider, compositeDisposable) {
 
 
 }

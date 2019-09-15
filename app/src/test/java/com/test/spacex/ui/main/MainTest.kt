@@ -2,7 +2,6 @@ package com.test.spacex.ui.main
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
-import com.nhaarman.mockito_kotlin.inOrder
 import com.nhaarman.mockito_kotlin.whenever
 import com.test.spacex.data.DataManager
 import com.test.spacex.data.server.models.LaunchModel
@@ -27,9 +26,6 @@ class MainTest {
     lateinit var dataManager: DataManager
 
     @Mock
-    lateinit var viewContract: MainContract
-
-    @Mock
     lateinit var observer: Observer<List<LaunchModel>>
 
     private lateinit var schedulerProvider: SchedulerProvider
@@ -46,7 +42,6 @@ class MainTest {
         schedulerProvider = TrampolineSchedulerProvider()
 
         mainViewModel = MainViewModel(dataManager, schedulerProvider, compositeDisposable)
-        mainViewModel.viewContract = viewContract
     }
 
     @Test
@@ -59,11 +54,6 @@ class MainTest {
         mainViewModel.getLaunches()
 
         assert(list.size == mainViewModel.launchesList.value!!.size)
-
-        inOrder(viewContract) {
-            viewContract.showProgressBar()
-            viewContract.hideProgressBar()
-        }
 
     }
 

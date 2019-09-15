@@ -4,21 +4,21 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 data class LaunchModel(
-    @SerializedName("flight_number") val flight_number: Double,
-    @SerializedName("mission_name") val mission_name: String,
-    @SerializedName("mission_id") val mission_id: List<String>,
-    @SerializedName("launch_year") val launch_year: Double,
-    @SerializedName("launch_date_unix") val launch_date_unix: Double,
-    @SerializedName("launch_date_utc") val launch_date_utc: String,
-    @SerializedName("launch_date_local") val launch_date_local: String,
-    @SerializedName("is_tentative") val is_tentative: Boolean,
-    @SerializedName("tentative_max_precision") val tentative_max_precision: String,
-    @SerializedName("tbd") val tbd: Boolean,
-    @SerializedName("launch_window") val launch_window: Double,
-    @SerializedName("ships") val ships: List<String>,
-    @SerializedName("launch_success") val launch_success: Boolean,
-    @SerializedName("details") val details: String,
-    @SerializedName("upcoming") val upcoming: Boolean,
-    @SerializedName("static_fire_date_utc") val static_fire_date_utc: String,
-    @SerializedName("static_fire_date_unix") val static_fire_date_unix: Double
+    @SerializedName("flight_number") val flightNumber: Double?,
+    @SerializedName("mission_name") val missionName: String?,
+    @SerializedName("mission_id") val missionId: List<String>?,
+    @SerializedName("launch_year") val launchYear: Double?,
+    @SerializedName("launch_date_unix") val launchDateUnix: Double?,
+    @SerializedName("launch_date_utc") val launchDateUtc: String?,
+    @SerializedName("launch_date_local") val launchDateLocal: String?,
+    @SerializedName("is_tentative") val isTentative: Boolean?,
+    @SerializedName("tentative_max_precision") val tentativeMaxPrecision: String?,
+    @SerializedName("tbd") val tbd: Boolean?,
+    @SerializedName("launch_window") val launchWindow: Double?,
+    @SerializedName("ships") val ships: List<String?>,
+    @SerializedName("launch_success") val launchSuccess: Boolean?,
+    @SerializedName("details") val details: String?,
+    @SerializedName("upcoming") val upcoming: Boolean?,
+    @SerializedName("static_fire_date_utc") val staticFireDateUtc: String?,
+    @SerializedName("static_fire_date_unix") val staticFireDateUnix: Double?
 ) : Serializable
