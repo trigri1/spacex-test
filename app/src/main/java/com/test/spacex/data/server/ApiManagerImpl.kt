@@ -8,7 +8,7 @@ import javax.inject.Named
 class ApiManagerImpl @Inject constructor(@Named("non_cached") val apiClient: ApiClient?) :
     ApiManager {
 
-    override fun getLaunches(): Observable<List<LaunchModel>>? {
+    override fun getLaunches(): Observable<List<LaunchModel>?>? {
         return apiClient?.getLaunches()
     }
 }

@@ -12,7 +12,7 @@ class DataManagerImpl @Inject constructor(
 ) : DataManager {
 
 
-    override fun getLaunches(): Observable<List<LaunchModel>>? {
+    override fun getLaunches(): Observable<List<LaunchModel>?>? {
         return apiManager?.getLaunches()
     }
 

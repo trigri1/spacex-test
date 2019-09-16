@@ -43,17 +43,17 @@ class DetailActivity : BaseActivity<DetailViewModel>(), HasAndroidInjector {
     }
 
     private fun setData() {
-        val launch = intent.getSerializableExtra(EXTRA_LAUNCH) as LaunchModel
+        val launch = intent.getSerializableExtra(EXTRA_LAUNCH) as LaunchModel?
 
-        tv_mission_name?.text = launch.missionName
-        tv_launch_date?.text = Consts.getFormattedDate(this, launch.launchDateLocal)
+        tv_mission_name?.text = launch?.missionName
+        tv_launch_date?.text = Consts.getFormattedDate(this, launch?.launchDateLocal)
 
-        setMissionId(launch.missionId)
+        setMissionId(launch?.missionId)
 
-        tv_detail?.text = launch.details
+        tv_detail?.text = launch?.details
     }
 
-    private fun setMissionId(missionId: List<String>?) {
+    private fun setMissionId(missionId: List<String?>?) {
         tv_mission_id?.text = if (missionId.isNullOrEmpty()) {
             getString(R.string.txt_none)
         } else {

@@ -6,7 +6,7 @@ import java.io.Serializable
 data class LaunchModel(
     @SerializedName("flight_number") val flightNumber: Double?,
     @SerializedName("mission_name") val missionName: String?,
-    @SerializedName("mission_id") val missionId: List<String>?,
+    @SerializedName("mission_id") val missionId: List<String?>?,
     @SerializedName("launch_year") val launchYear: Double?,
     @SerializedName("launch_date_unix") val launchDateUnix: Double?,
     @SerializedName("launch_date_utc") val launchDateUtc: String?,

@@ -7,5 +7,5 @@ import retrofit2.http.GET
 interface ApiClient {
 
     @GET("/v3/launches")
-    fun getLaunches(): Observable<List<LaunchModel>>?
+    fun getLaunches(): Observable<List<LaunchModel>?>?
 }
